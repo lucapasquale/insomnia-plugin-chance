@@ -1,10 +1,10 @@
 {
-  "name": "insomnia-plugin-random",
+  "name": "insomnia-plugin-chance",
   "author": "lucapasquale",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "main": "index.js",
   "insomnia": {
-    "name": "random",
+    "name": "chance",
     "description": "Generate a random value"
   },
   "dependencies": {
