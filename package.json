@@ -1,13 +1,12 @@
 {
   "name": "insomnia-plugin-random",
-  "version": "1.0.0",
-  "description": "",
+  "author": "lucapasquale",
+  "version": "1.0.1",
   "main": "index.js",
   "insomnia": {
-    "name": "randomNumber",
-    "description": "Generate a random number"
+    "name": "random",
+    "description": "Generate a random value"
   },
-  "author": "lucapasquale",
   "dependencies": {
     "chance": "^1.0.13"
   }

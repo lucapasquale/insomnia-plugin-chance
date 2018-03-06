@@ -35,7 +35,7 @@ module.exports.templateTags = [{
       case 'string': return chance.string();
       case 'cpf': return chance.cpf();
       case 'natural': return chance.natural();
-      default throw new Error('invalid type');
+      default: throw new Error('invalid type');
     }
   }
 }];
