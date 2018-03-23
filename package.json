@@ -1,8 +1,23 @@
 {
   "name": "insomnia-plugin-chance",
-  "author": "lucapasquale",
-  "version": "1.1.0",
+  "version": "1.1.1",
+  "author": "Luca Pasquale (https://github.com/lucapasquale)",
+  "homepage": "https://github.com/lucapasquale/insomnia-plugin-chance",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucapasquale/insomnia-plugin-chance.git"
+  },
+  "keywords": [
+    "insomnia",
+    "insomnia-plugin",
+    "chance",
+    "random",
+    "random-generation"
+  ],
+  "bugs": {
+    "url": "https://github.com/lucapasquale/insomnia-plugin-chance/issues"
+  },
   "insomnia": {
     "name": "chance",
     "description": "Generate a random value"
