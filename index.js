@@ -25,6 +25,7 @@ module.exports.templateTags = [
           { displayName: 'Date', value: 'date' },
           { displayName: 'Word', value: 'word' },
           { displayName: 'CPF', value: 'cpf' },
+          { displayName: 'Pick One', value: 'pickone' },
           { displayName: 'Custom', value: 'custom' },
         ],
       },
@@ -39,11 +40,25 @@ module.exports.templateTags = [
         placeholder: '"min": 10, "max": 25',
       },
     ],
-    async run(context, type, func, opt = '') {
+    run(_, type, func, opt = '') {
       const customFunction = type === 'custom' ? func : type;
-      const options = JSON.parse(`{${opt}}`)
+      const options = parseOptions(opt);
 
       return chance[customFunction](options);
     }
   },
 ];
+
+function parseOptions(options) {
+  if (!options || options === '') {
+    return undefined;
+  }
+
+  // if its already an array, just return it
+  if (/^\[.*\]$/.test(options)) {
+    return JSON.parse(options);
+  }
+
+  // if not, return as an object
+  return JSON.parse(`{${options}}`);
+}
