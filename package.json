@@ -1,6 +1,6 @@
 {
   "name": "insomnia-plugin-chance",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "author": "Luca Pasquale (https://github.com/lucapasquale)",
   "homepage": "https://github.com/lucapasquale/insomnia-plugin-chance",
   "main": "index.js",
