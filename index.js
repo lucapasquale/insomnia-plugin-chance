@@ -41,7 +41,7 @@ module.exports.templateTags = [
     ],
     async run(context, type, func, opt = '') {
       const customFunction = type === 'custom' ? func : type;
-      const options = JSON.parse(`{${opt}}`)
+      const options = JSON.parse(`${opt}`)
 
       return chance[customFunction](options);
     }
