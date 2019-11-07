@@ -35,9 +35,9 @@ module.exports.templateTags = [
         placeholder: 'integer',
       },
       {
-        displayName: 'Options - Stringified arguments for chosen function',
+        displayName: 'Options - Arguments for selected function, separated by a comma',
         type: 'string',
-        placeholder: '"min": 10, "max": 25',
+        placeholder: 'min: 10, max: 25',
       },
     ],
     run(_, type, func, opt = '') {
@@ -50,7 +50,7 @@ module.exports.templateTags = [
 ];
 
 function parseOptions(options) {
-  if (!options || options === '') {
+  if (!options) {
     return undefined;
   }
 
@@ -59,6 +59,21 @@ function parseOptions(options) {
     return JSON.parse(options);
   }
 
-  // if not, return as an object
-  return JSON.parse(`{${options}}`);
+  // if not, parse to be JSON fields
+  const stringifiedOptions = options
+    .split(/,\s?/gi)
+    .map(t => {
+      const regex = /(.*):\s?(.*)/gi
+      const matches = regex.exec(t)
+
+      if (!matches) {
+        return null
+      }
+
+      return `"${matches[1]}": ${matches[2]}`
+    })
+    .filter(Boolean)
+    .join(',')
+
+  return JSON.parse(`{${stringifiedOptions}}`);
 }
