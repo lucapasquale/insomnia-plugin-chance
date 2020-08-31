@@ -37,6 +37,7 @@ module.exports.templateTags = [
       {
         displayName: 'Options - Arguments for selected function, separated by a comma',
         type: 'string',
+        encoding: 'base64',
         placeholder: 'min: 10, max: 25',
       },
     ],
