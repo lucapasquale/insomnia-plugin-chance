@@ -51,6 +51,7 @@ module.exports.templateTags = [
 ];
 
 function parseOptions(options) {
+  console.log({ options });
   if (!options) {
     return undefined;
   }
