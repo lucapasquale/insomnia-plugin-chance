@@ -42,16 +42,17 @@ module.exports.templateTags = [
       },
     ],
     run(_, type, func, opt = '') {
-      const customFunction = type === 'custom' ? func : type;
+      const chanceFunction = type === 'custom' ? func : type;
       const options = parseOptions(opt);
 
-      return chance[customFunction](options);
+      return chance[chanceFunction](options);
     }
   },
 ];
 
 function parseOptions(options) {
-  if (!options) {
+  // insomnia encoding returns 'b64::::46b' if it's an empty string
+  if (!options || options === 'b64::::46b') {
     return undefined;
   }
 
@@ -64,9 +65,7 @@ function parseOptions(options) {
   const stringifiedOptions = options
     .split(/,\s?/gi)
     .map(t => {
-      const regex = /(.*):\s?(.*)/gi
-      const matches = regex.exec(t)
-
+      const matches = /(.*):\s?(.*)/gi.exec(t)
       if (!matches) {
         return null
       }
